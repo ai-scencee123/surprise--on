@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Our Memories ❤️</title>
+
+<style>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:'Poppins',sans-serif;
+}
+
+body{
+    background:linear-gradient(135deg,#ff758c,#ff7eb3,#ffd3a5);
+    overflow-x:hidden;
+    color:white;
+}
+
+header{
+    text-align:center;
+    padding:40px 20px;
+}
+
+header h1{
+    font-size:40px;
+}
+
+header p{
+    margin-top:10px;
+    font-size:18px;
+}
+
+.gallery{
+    width:90%;
+    max-width:1200px;
+    margin:30px auto;
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+    gap:20px;
+}
+
+
+
+.card{
+    background:white;
+    border-radius:18px;
+    overflow:hidden;
+    box-shadow:0 10px 20px rgba(0,0,0,.2);
+    transform:scale(.9);
+    opacity:0;
+    animation:show .8s forwards;
+}
+
+.card img{
+    width:100%;
+    height:300px;
+    object-fit:cover;
+}
+
+.caption{
+    padding:15px;
+    text-align:center;
+    color:#ff4d6d;
+    font-weight:bold;
+}
+
+.card:hover{
+    transform:scale(1.05);
+    transition:.3s;
+}
+
+@keyframes show{
+    to{
+        opacity:1;
+        transform:scale(1);
+    }
+}
+
+button{
+    display:block;
+    margin:40px auto;
+    padding:15px 35px;
+    border:none;
+    border-radius:50px;
+    background:white;
+    color:#ff4d6d;
+    font-size:18px;
+    cursor:pointer;
+}
+
+button:hover{
+    transform:scale(1.08);
+}
+
+.hearts{
+    position:fixed;
+    width:100%;
+    height:100%;
+    top:0;
+    left:0;
+    pointer-events:none;
+    z-index:-1;
+}
+
+.heart{
+    position:absolute;
+    bottom:-40px;
+    animation:float linear infinite;
+}
+
+@keyframes float{
+    from{
+        transform:translateY(0);
+        opacity:1;
+    }
+    to{
+        transform:translateY(-120vh);
+        opacity:0;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<div class="hearts" id="hearts"></div>
+
+<header>
+<h1>📸 Our Beautiful Memories ❤️</h1>
+<p>Every picture tells a story of us.</p>
+</header>
+
+<div class="gallery">
+
+<div class="card">
+<img src="c:\Users\HP\Desktop\photo 1.jpeg" alt="Memory 1">
+<div class="caption">my kathe ❤️</div>
+</div>
+
+<div class="card">
+<img src="c:\Users\HP\Desktop\u me.jpeg" alt="Memory 2">
+<div class="caption">Our happiest day 😊</div>
+</div>
+
+<div class="card">
+ghhhhhhhhhhhhy<img src="c:\Users\HP\Desktop\fav pic.jpeg" alt="Memory 3">
+<div class="caption">fav pic 💖</div>
+</div>
+
+<div class="card">
+<img src="c:\Users\HP\Desktop\fav moment.jpeg" alt="Memory 4">
+<div class="caption">My favorite moment 🌹</div>
+</div>
+
+<div class="card">
+<img src="c:\Users\HP\Desktop\fav2.jpeg" alt="Memory 5">
+<div class="caption">You & Me 💕</div>
+</div>
+
+<div class="card">
+<img src="c:\Users\HP\Downloads\WhatsApp Image 2026-08-01 at 1.23.18 PM.jpeg" alt="Memory 6">
+<div class="caption">#fav ❤️</div>
+</div>
+<div class="card">
+<img src="c:\Users\HP\Desktop\hero.jpeg" alt="Memory 7">
+<div class="caption">My kothi❤️</div>
+</div>
+
+</div>
+
+<button onclick="nextPage()">Continue 🎁</button>
+<!-- Replace music/happy-birthday.mp3 with your own file -->
+<audio id="music" autoplay loop>
+    <source src="c:\Users\HP\Downloads\music2.mpeg" type="audio/mpeg">
+</audio>
+<script>
+
+function nextPage(){
+    window.location.href="cake.html";
+}
+
+const hearts=document.getElementById("hearts");
+
+for(let i=0;i<50;i++){
+
+let heart=document.createElement("div");
+
+heart.className="heart";
+
+heart.innerHTML=["❤️","💕","💖","💘","💗"][Math.floor(Math.random()*5)];
+
+heart.style.left=Math.random()*100+"%";
+
+heart.style.fontSize=(15+Math.random()*25)+"px";
+
+heart.style.animationDuration=(5+Math.random()*7)+"s";
+
+heart.style.animationDelay=Math.random()*5+"s";
+
+hearts.appendChild(heart);
+
+}
+
+
+
+
+</script>
+
+</body>
+</html>

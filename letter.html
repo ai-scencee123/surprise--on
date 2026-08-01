@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>My Love Letter ❤️</title>
+
+<style>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:'Poppins',sans-serif;
+}
+
+body{
+    background:linear-gradient(135deg,#ff758c,#ff7eb3,#ffd3a5);
+    height:100vh;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    overflow:hidden;
+}
+
+.letter-box{
+    width:90%;
+    max-width:800px;
+    background:rgba(255,255,255,0.18);
+    backdrop-filter:blur(15px);
+    padding:35px;
+    border-radius:20px;
+    color:white;
+    box-shadow:0 10px 30px rgba(0,0,0,.2);
+    animation:fadeIn 2s ease;
+}
+
+h1{
+    text-align:center;
+    margin-bottom:20px;
+    font-size:38px;
+}
+
+#text{
+    font-size:20px;
+    line-height:1.8;
+    white-space:pre-wrap;
+}
+
+.cursor{
+    display:inline-block;
+    animation:blink .8s infinite;
+}
+
+button{
+    margin-top:30px;
+    padding:14px 35px;
+    border:none;
+    border-radius:50px;
+    background:white;
+    color:#ff4d6d;
+    font-size:18px;
+    cursor:pointer;
+    display:block;
+    margin-left:auto;
+    margin-right:auto;
+}
+
+button:hover{
+    transform:scale(1.05);
+}
+
+@keyframes blink{
+    50%{opacity:0;}
+}
+
+@keyframes fadeIn{
+    from{
+        opacity:0;
+        transform:scale(.8);
+    }
+    to{
+        opacity:1;
+        transform:scale(1);
+    }
+}
+
+/* Floating Hearts */
+
+.hearts{
+    position:absolute;
+    width:100%;
+    height:100%;
+    overflow:hidden;
+    z-index:-1;
+}
+
+.heart{
+    position:absolute;
+    bottom:-50px;
+    animation:float linear infinite;
+}
+
+@keyframes float{
+    from{
+        transform:translateY(0) rotate(0deg);
+        opacity:1;
+    }
+    to{
+        transform:translateY(-120vh) rotate(360deg);
+        opacity:0;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<div class="hearts" id="hearts"></div>
+
+<div class="letter-box">
+
+<h1>💌 THISS IS FOR UHH DAAAA❤️</h1>
+
+<p id="text"></p><span class="cursor">|</span>
+
+<button onclick="nextPage()">Our Memories 📸</button>
+
+</div>
+<!-- Replace music/happy-birthday.mp3 with your own file -->
+<audio id="music" autoplay loop>
+    <source src="c:\Users\HP\Downloads\music1.mpeg" type="audio/mpeg">
+</audio>
+<script>
+
+const message=`TO MY SPECIAL ONE ❤️,
+Happy Birthday!!! MY KOTHII❤️
+You are my happiness, my comfort, my biggest blessing, and the reason behind my smile every day.Thank you for always being there for me through every laugh, every tear, and joyyyy.I hope this birthday brings you endless happiness, success, peace, and all the love you deserve and May all your dreams come true, and may we continue making beautiful memories together no matter where we are lets beeee with same bond in our life timee....
+❤️ once again manyyyy moreee Birthdays to u, kathee❤️ loveee uu sooo muchhhh kothiii❤️
+#my first love,best friend, kothi,nahii,katheee,bangaraaa,devuu,more over my second mother.
+                                                                         its ur kothiii
+                                                                           #naviii`;
+
+let i=0;
+
+function typeWriter(){
+
+    if(i<message.length){
+
+        document.getElementById("text").innerHTML+=message.charAt(i);
+
+        i++;
+
+        setTimeout(typeWriter,46);
+
+    }
+
+}
+
+typeWriter();
+
+function nextPage(){
+
+    window.location.href="gallery.html";
+
+}
+
+// Floating Hearts
+
+const hearts=document.getElementById("hearts");
+
+for(let i=0;i<50;i++){
+
+let heart=document.createElement("div");
+
+heart.className="heart";
+
+heart.innerHTML=["❤️","💖","💕","💘","💗"][Math.floor(Math.random()*5)];
+
+heart.style.left=Math.random()*100+"%";
+
+heart.style.fontSize=(15+Math.random()*30)+"px";
+
+heart.style.animationDuration=(5+Math.random()*8)+"s";
+
+heart.style.animationDelay=Math.random()*5+"s";
+
+hearts.appendChild(heart);
+
+}
+
+</script>
+
+</body>
+</html>

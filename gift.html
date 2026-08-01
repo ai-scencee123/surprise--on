@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Gift Surprise ❤️</title>
+
+<style>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:Arial,sans-serif;
+}
+
+body{
+    background:linear-gradient(135deg,#ff758c,#ff7eb3,#ffd1dc);
+    height:100vh;
+    overflow:hidden;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    flex-direction:column;
+}
+
+.container{
+    position:relative;
+    text-align:center;
+}
+
+.box{
+    width:180px;
+    height:180px;
+    background:#ff3b5c;
+    position:relative;
+    cursor:pointer;
+    border-radius:10px;
+    transition:.8s;
+    margin:auto;
+}
+
+.lid{
+    position:absolute;
+    width:200px;
+    height:35px;
+    background:#ff1744;
+    left:-10px;
+    top:-18px;
+    border-radius:10px;
+    transform-origin:bottom;
+    transition:.8s;
+}
+
+.ribbonV{
+    position:absolute;
+    width:30px;
+    height:180px;
+    background:gold;
+    left:75px;
+}
+
+.ribbonH{
+    position:absolute;
+    width:180px;
+    height:30px;
+    background:gold;
+    top:75px;
+}
+
+.open .lid{
+    transform:rotate(-120deg);
+}
+
+.message{
+    position:absolute;
+    width:320px;
+    left:50%;
+    transform:translateX(-50%) scale(0);
+    top:-200px;
+    background:white;
+    padding:20px;
+    border-radius:15px;
+    color:#e91e63;
+    font-size:24px;
+    font-weight:bold;
+    transition:1s;
+    box-shadow:0 10px 30px rgba(0,0,0,.3);
+}
+
+.open .message{
+    transform:translateX(-50%) scale(1);
+}
+
+.rose{
+    position:absolute;
+    font-size:45px;
+    opacity:0;
+    transition:1s;
+}
+
+.open .rose{
+    opacity:1;
+}
+
+.r1{top:-100px;left:-100px;}
+.r2{top:-120px;right:-100px;}
+.r3{bottom:-80px;left:-100px;}
+.r4{bottom:-80px;right:-100px;}
+.r5{top:-170px;left:50%;transform:translateX(-50%);}
+
+.heart{
+    position:absolute;
+    color:white;
+    font-size:25px;
+    animation:float 6s linear infinite;
+}
+
+@keyframes float{
+    from{
+        transform:translateY(100vh);
+        opacity:1;
+    }
+    to{
+        transform:translateY(-120vh);
+        opacity:0;
+    }
+}
+
+h2{
+    color:white;
+    margin-bottom:30px;
+}
+</style>
+
+</head>
+<body>
+
+<h2>🎁 Click the Gift Box 🎁</h2>
+
+<div class="container" id="gift">
+
+<div class="message">
+❤️ I LOVE YOU ❤️
+<br><br>
+🌹 KOTHIIIII. 🌹
+</div>
+
+<div class="rose r1">🌹</div>
+<div class="rose r2">🌹</div>
+<div class="rose r3">🌹</div>
+<div class="rose r4">🌹</div>
+<div class="rose r5"></div>
+
+<div class="box" onclick="openGift()">
+
+<div class="lid"></div>
+
+<div class="ribbonV"></div>
+
+<div class="ribbonH"></div>
+
+</div>
+
+</div>
+<!-- Replace music/happy-birthday.mp3 with your own file -->
+<audio id="music" autoplay loop>
+    <source src="c:\Users\HP\Downloads\WhatsApp Audio 2026-08-01 at 12.11.18 PM.mpeg" type="audio/mpeg">
+</audio>
+<script>
+
+let opened = false;
+
+function openGift(){
+
+    if(opened) return;
+
+    opened = true;
+
+    document.getElementById("gift").classList.add("open");
+
+    createHearts();
+}
+
+function createHearts(){
+
+    setInterval(()=>{
+
+        let heart=document.createElement("div");
+
+        heart.className="heart";
+
+        heart.innerHTML="❤️";
+
+        heart.style.left=Math.random()*100+"vw";
+
+        heart.style.fontSize=(20+Math.random()*30)+"px";
+
+        heart.style.animationDuration=(4+Math.random()*4)+"s";
+
+        document.body.appendChild(heart);
+
+        setTimeout(()=>{
+            heart.remove();
+        },8000);
+
+    },300);
+
+}
+
+</script>
+
+</body>
+</html>
